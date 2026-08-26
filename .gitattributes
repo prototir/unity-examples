@@ -1,0 +1,5 @@
+* text=auto eol=lf
+*.unity merge=unityyamlmerge eol=lf whitespace=-trailing-space
+*.prefab merge=unityyamlmerge eol=lf whitespace=-trailing-space
+*.asset merge=unityyamlmerge eol=lf whitespace=-trailing-space
+*.meta eol=lf whitespace=-trailing-space

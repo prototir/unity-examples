@@ -1,0 +1,17 @@
+{
+  "name": "Unity SDK example",
+  "description": "A small Unity 6 scene demonstrating the Prototir SDK.",
+  "type": "game",
+  "entry": "index.html",
+  "thumbnail": "auto",
+  "devices": ["desktop", "mobile"],
+  "orientation": "any",
+  "runtime": {
+    "engine": "unity",
+    "engineVersion": "6000.0",
+    "profile": "standard"
+  },
+  "modules": [],
+  "permissions": [],
+  "ai": { "mode": "managed" }
+}
