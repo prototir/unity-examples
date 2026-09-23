@@ -11,16 +11,19 @@ for (const path of [
 ]) assert.ok(existsSync(new URL(`../${path}`, import.meta.url)), `Missing ${path}`);
 
 const packages = JSON.parse(read('Packages/manifest.json'));
-// The invariant is that the example pins a release, not that it pins one particular release.
-// A literal version here only asserted that nobody had shipped an SDK since, and the fix was to
-// edit the number, which proves nothing: what actually matters is that two people opening this
-// example on different days get the same code.
+// Pin an immutable SDK revision so two people opening this project get the same code. A tagged
+// release or a full commit hash works; Unity does not accept an abbreviated hash.
 const sdk = packages.dependencies['com.prototir.sdk'];
 assert.match(
   sdk,
-  /^https:\/\/github\.com\/prototir\/unity-sdk\.git#v\d+\.\d+\.\d+$/,
-  `the example must pin a tagged SDK release, got ${sdk}`
+  /^https:\/\/github\.com\/prototir\/unity-sdk\.git#(?:v\d+\.\d+\.\d+|[0-9a-f]{40})$/,
+  `the example must pin an immutable SDK revision, got ${sdk}`
 );
+const lockedSdk = JSON.parse(read('Packages/packages-lock.json')).dependencies['com.prototir.sdk'];
+assert.equal(lockedSdk.version, sdk, 'the lockfile must resolve the SDK revision in the manifest');
+assert.equal(lockedSdk.source, 'git');
+if (/#[0-9a-f]{40}$/.test(sdk))
+  assert.equal(lockedSdk.hash, sdk.slice(-40), 'the lockfile must use that exact SDK commit');
 const manifest = JSON.parse(read('Assets/Prototir/prototir.json'));
 assert.equal(manifest.runtime?.engine, 'unity');
 assert.equal(manifest.runtime?.profile, 'standard');

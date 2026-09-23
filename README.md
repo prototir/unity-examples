@@ -10,12 +10,17 @@ through the SDK's local mocks.
 1. Install Unity 6 with Web Build Support.
 2. Clone this repository.
 3. Open the repository folder as a Unity project.
-4. Wait for Package Manager to install `com.prototir.sdk` from the pinned `v0.1.0` tag.
+4. Wait for Package Manager to install `com.prototir.sdk` from the pinned SDK commit.
 5. Open **Prototir > Project Setup** and resolve every blocking issue.
 6. Open `Assets/Scenes/Main.unity` and enter Play mode.
 
 The example configures a local managed-AI mock in the Editor. A Web build uses the real Prototir
 player and requires managed AI to be enabled for the uploaded prototype.
+
+For a native build, press **Pair this build** in the example scene. The SDK displays a code and QR
+over the game; scan and approve it to connect the build. The playground returns when you close the
+pairing screen. In the Editor, set `Assets/Resources/PrototirSettings.asset` to a prototype slug
+before pairing. A downloaded build receives its slug from Prototir during upload.
 
 ## Build and upload
 

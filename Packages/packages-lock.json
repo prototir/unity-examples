@@ -1,14 +1,17 @@
 {
   "dependencies": {
     "com.prototir.sdk": {
-      "version": "https://github.com/prototir/unity-sdk.git#v0.1.0",
+      "version": "https://github.com/prototir/unity-sdk.git#8086c3776afe11c90cb49a1f32fd02d03a265b0d",
       "depth": 0,
       "source": "git",
-      "dependencies": {},
-      "hash": "f413fc042315383a7da41ba88f9b97985cc1c065"
+      "dependencies": {
+        "com.unity.modules.unitywebrequest": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0"
+      },
+      "hash": "8086c3776afe11c90cb49a1f32fd02d03a265b0d"
     },
     "com.unity.collab-proxy": {
-      "version": "2.11.2",
+      "version": "2.13.6",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -21,7 +24,7 @@
       "dependencies": {}
     },
     "com.unity.ide.rider": {
-      "version": "3.0.38",
+      "version": "3.0.40",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -30,11 +33,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.25",
+      "version": "2.0.26",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.test-framework": "1.1.31"
+        "com.unity.test-framework": "1.1.33"
       },
       "url": "https://packages.unity.com"
     },
@@ -56,7 +59,7 @@
       }
     },
     "com.unity.timeline": {
-      "version": "1.8.9",
+      "version": "1.8.13",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -116,6 +119,12 @@
       "dependencies": {}
     },
     "com.unity.modules.ui": {
+      "version": "1.0.0",
+      "depth": 1,
+      "source": "builtin",
+      "dependencies": {}
+    },
+    "com.unity.modules.unitywebrequest": {
       "version": "1.0.0",
       "depth": 1,
       "source": "builtin",

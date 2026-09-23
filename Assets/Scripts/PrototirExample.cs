@@ -11,6 +11,14 @@ public sealed class PrototirExample : MonoBehaviour
 
     private async void Start()
     {
+        // This IMGUI-only scene has no camera in its hierarchy. A solid backdrop also keeps the
+        // native pairing overlay free of Unity's "No cameras rendering" message.
+        if (FindFirstObjectByType<Camera>() == null)
+        {
+            var camera = new GameObject("Example backdrop").AddComponent<Camera>();
+            camera.clearFlags = CameraClearFlags.SolidColor;
+            camera.backgroundColor = new Color(0.059f, 0.059f, 0.067f);
+        }
 #if UNITY_EDITOR
         PrototirSdk.MockAiHandler = options =>
             Task.FromResult($"Editor mock: explore the signal hidden beyond the next door.");
@@ -31,7 +39,7 @@ public sealed class PrototirExample : MonoBehaviour
     private void OnGUI()
     {
         var width = Mathf.Min(560f, Screen.width - 40f);
-        var height = Mathf.Min(520f, Screen.height - 40f);
+        var height = Mathf.Min(580f, Screen.height - 40f);
         var area = new Rect((Screen.width - width) / 2f, (Screen.height - height) / 2f, width, height);
         GUILayout.BeginArea(area, GUI.skin.box);
         GUILayout.Space(20);
@@ -42,11 +50,25 @@ public sealed class PrototirExample : MonoBehaviour
         GUI.enabled = !busy;
         if (GUILayout.Button("Add 10 points", GUILayout.Height(52))) _ = AddPointsAsync();
         if (GUILayout.Button("Generate a quest hook", GUILayout.Height(52))) _ = GenerateQuestAsync();
+#if !UNITY_WEBGL || UNITY_EDITOR
+        if (GUILayout.Button(PrototirSdk.IsPaired ? "Connection" : "Pair this build", GUILayout.Height(52)))
+            OpenPairing();
+#endif
         GUI.enabled = true;
         GUILayout.Space(16);
         GUILayout.Label(status, GUI.skin.textArea, GUILayout.ExpandHeight(true));
         GUILayout.EndArea();
     }
+
+#if !UNITY_WEBGL || UNITY_EDITOR
+    private void OpenPairing()
+    {
+        // Hide the playground while the SDK overlay is open, then bring it back on dismissal.
+        enabled = false;
+        var screen = Prototir.Native.PrototirPairingScreen.Show();
+        screen.Closed += () => { if (this != null) enabled = true; };
+    }
+#endif
 
     private async Task AddPointsAsync()
     {
