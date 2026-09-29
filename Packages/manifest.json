@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.prototir.sdk": "https://github.com/prototir/unity-sdk.git#8086c3776afe11c90cb49a1f32fd02d03a265b0d",
+    "com.prototir.sdk": "https://github.com/prototir/unity-sdk.git#v0.3.0",
     "com.unity.collab-proxy": "2.13.6",
     "com.unity.ide.rider": "3.0.40",
     "com.unity.ide.visualstudio": "2.0.26",

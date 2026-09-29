@@ -1,14 +1,16 @@
 {
   "dependencies": {
     "com.prototir.sdk": {
-      "version": "https://github.com/prototir/unity-sdk.git#8086c3776afe11c90cb49a1f32fd02d03a265b0d",
+      "version": "https://github.com/prototir/unity-sdk.git#v0.3.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.modules.unitywebrequest": "1.0.0",
-        "com.unity.modules.jsonserialize": "1.0.0"
+        "com.unity.modules.jsonserialize": "1.0.0",
+        "com.unity.modules.imgui": "1.0.0",
+        "com.unity.modules.screencapture": "1.0.0"
       },
-      "hash": "8086c3776afe11c90cb49a1f32fd02d03a265b0d"
+      "hash": "e16d60f544bcc369b4da2d2abcba3d0ca0560fcd"
     },
     "com.unity.collab-proxy": {
       "version": "2.13.6",
@@ -100,6 +102,12 @@
         "com.unity.modules.animation": "1.0.0"
       }
     },
+    "com.unity.modules.imageconversion": {
+      "version": "1.0.0",
+      "depth": 2,
+      "source": "builtin",
+      "dependencies": {}
+    },
     "com.unity.modules.imgui": {
       "version": "1.0.0",
       "depth": 1,
@@ -117,6 +125,14 @@
       "depth": 1,
       "source": "builtin",
       "dependencies": {}
+    },
+    "com.unity.modules.screencapture": {
+      "version": "1.0.0",
+      "depth": 1,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.modules.imageconversion": "1.0.0"
+      }
     },
     "com.unity.modules.ui": {
       "version": "1.0.0",
