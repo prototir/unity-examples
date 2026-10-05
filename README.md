@@ -14,6 +14,10 @@ through the SDK's local mocks.
 5. Open **Prototir > Project Setup** and resolve every blocking issue.
 6. Open `Assets/Scenes/Main.unity` and enter Play mode.
 
+On Prototir, testers get **Feedback & tools** (Screenshot, Comment, Console, Performance) without
+any code in this project; native builds show the same control in their bottom-left corner. In your
+own project, **Prototir > Project Setup** tells you when a newer SDK is released.
+
 The example configures a local managed-AI mock in the Editor. A Web build uses the real Prototir
 player and requires managed AI to be enabled for the uploaded prototype.
 

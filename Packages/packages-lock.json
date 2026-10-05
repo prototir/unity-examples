@@ -1,16 +1,17 @@
 {
   "dependencies": {
     "com.prototir.sdk": {
-      "version": "https://github.com/prototir/unity-sdk.git#v0.3.0",
+      "version": "https://github.com/prototir/unity-sdk.git#v0.4.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.modules.unitywebrequest": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0",
         "com.unity.modules.imgui": "1.0.0",
-        "com.unity.modules.screencapture": "1.0.0"
+        "com.unity.modules.screencapture": "1.0.0",
+        "com.unity.modules.imageconversion": "1.0.0"
       },
-      "hash": "e16d60f544bcc369b4da2d2abcba3d0ca0560fcd"
+      "hash": "a7eef1cf1e797cd9e2caf2b1674a6331d4785217"
     },
     "com.unity.collab-proxy": {
       "version": "2.13.6",
@@ -104,7 +105,7 @@
     },
     "com.unity.modules.imageconversion": {
       "version": "1.0.0",
-      "depth": 2,
+      "depth": 1,
       "source": "builtin",
       "dependencies": {}
     },
